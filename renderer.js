@@ -5,6 +5,34 @@
 // in the rendering process.
 
 const Serialport = require('serialport')
+
+mdc.autoInit();
+
+const stopButton = document.querySelector('#stopButton');
+stopButton.addEventListener('click', () => {
+  alert('You clicked!');
+});
+
+const forwardButton = document.querySelector('#forwardButton');
+forwardButton.addEventListener('click', () => {
+  alert('You clicked!');
+});
+
+const backwardButton = document.querySelector('#backwardButton');
+backwardButton.addEventListener('click', () => {
+  alert('You clicked!');
+});
+
+const leftButton = document.querySelector('#leftButton');
+leftButton.addEventListener('click', () => {
+  alert('You clicked!');
+});
+
+const rightButton = document.querySelector('#rightButton');
+rightButton.addEventListener('click', () => {
+  alert('You clicked!');
+});
+
 Serialport.list().then(ports => {
   document.getElementById("port-list").innerHTML = `
   <h1>Detected Serial Ports</h1>
