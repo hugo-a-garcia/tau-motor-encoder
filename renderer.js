@@ -33,11 +33,16 @@ rightButton.addEventListener('click', () => {
   alert('You clicked!');
 });
 
+// Load detected serial ports to a Select
+const select = new mdc.select.MDCSelect(document.querySelector('.mdc-select'));
+
 Serialport.list().then(ports => {
-  document.getElementById("port-list").innerHTML = `
-  <h1>Detected Serial Ports</h1>
-  <ul>
-    ${ports.map(port => `<li>${port.comName}</li>`).join('')}
-  </ul>
+  document.getElementById("portSelectionList").innerHTML = `
+  <li class="mdc-list-item mdc-list-item--selected" data-value="" aria-selected="true"></li>
+  ${ports.map(port => `<li class="mdc-list-item" data-value="${port.comName}">${port.comName}</li>`).join('')}
   `
 })
+
+select.listen('MDCSelect:change', () => {
+  alert(`Selected option at index ${select.selectedIndex} with value "${select.value}"`);
+});
