@@ -17,8 +17,51 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500">
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <style>
+    /* select width */
     .demo-width-class {
       width: 200px;
+    }
+
+    .directionControl {
+      display: grid;
+
+      grid-gap: 5px;
+      grid-template-columns: 100px 100px 100px;
+      background-color: #fff;
+      color: #444;
+    }
+
+    .box {
+      background-color: #444;
+      color: #fff;
+      border-radius: 5px;
+      padding: 5px;
+
+    }
+
+    .stop {
+      grid-column: 2 / 3;
+      grid-row: 2 / 3;
+    }
+
+    .forward {
+      grid-column: 2 / 3;
+      grid-row: 1 / 1;
+    }
+
+    .backward {
+      grid-column: 2 / 3;
+      grid-row: 3 / 3;
+    }
+
+    .left {
+      grid-column: 1 / 2;
+      grid-row: 2/ 3;
+    }
+
+    .right {
+      grid-column: 3 / 3;
+      grid-row: 2 / 3;
     }
   </style>
 
@@ -26,7 +69,14 @@
 </head>
 
 <body>
- 
+  <div>
+    <p>
+      We are using Node.js <span id="node-version"></span>,
+      Chromium <span id="chrome-version"></span>,
+      and Electron <span id="electron-version"></span>,
+      and Serialport <span id="serialport-version"></span>
+    </p>
+  </div>
   <div class="mdc-select">
     <div class="mdc-select__anchor demo-width-class">
       <i class="mdc-select__dropdown-icon"></i>
@@ -51,51 +101,29 @@
     </div>
   </div>
 
-  We are using Node.js <span id="node-version"></span>,
-  Chromium <span id="chrome-version"></span>,
-  and Electron <span id="electron-version"></span>,
-  and Serialport <span id="serialport-version"></span>
-
   <div>
-    <button id="stopButton" class="mdc-button
-    mdc-button--raised
-    mdc-button--primary
-    mdc-ripple-surface" data-mdc-auto-init="MDCRipple">
-      STOP
-    </button>
-
-    <button id="forwardButton" class="mdc-button
-    mdc-button--raised
-    mdc-button--primary
-    mdc-ripple-surface" data-mdc-auto-init="MDCRipple">
-      FORWARD
-    </button>
-
-    <button id="backwardButton" class="mdc-button
-    mdc-button--raised
-    mdc-button--primary
-    mdc-ripple-surface" data-mdc-auto-init="MDCRipple">
-      BACKWARD
-    </button>
-
-    <button id="leftButton" class="mdc-button
-    mdc-button--raised
-    mdc-button--primary
-    mdc-ripple-surface" data-mdc-auto-init="MDCRipple">
-      LEFT
-    </button>
-
-    <button id="rightButton" class="mdc-button
-    mdc-button--raised
-    mdc-button--primary
-    mdc-ripple-surface" data-mdc-auto-init="MDCRipple">
-      RIGHT
-    </button>
-  </div>
-
-
-  <div id="port-list"></div>
-
+    <div class="directionControl">
+      <button id="stopButton" class="stop mdc-button mdc-button--outlined mdc-button--primary mdc-ripple-surface"
+        data-mdc-auto-init="MDCRipple">
+        STOP
+      </button>
+      <button id="forwardButton" class="forward mdc-button mdc-button--raised mdc-button--primary mdc-ripple-surface"
+        data-mdc-auto-init="MDCRipple">
+        FORWD
+      </button>
+      <button id="backwardButton" class="backward mdc-button mdc-button--raised mdc-button--primary mdc-ripple-surface"
+        data-mdc-auto-init="MDCRipple">
+        BACKWD
+      </button>
+      <button id="leftButton" class="left mdc-button mdc-button--raised mdc-button--primary mdc-ripple-surface"
+        data-mdc-auto-init="MDCRipple">
+        LEFT
+      </button>
+      <button id="rightButton" class="right mdc-button mdc-button--raised mdc-button--primary mdc-ripple-surface"
+        data-mdc-auto-init="MDCRipple">
+        RIGHT
+      </button>
+    </div>
   </div>
 
   <!-- You can also require other files to run in this process -->
